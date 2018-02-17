@@ -21,12 +21,17 @@ router.get("/scrape", function (req, res) {
         var $ = cheerio.load(html);
         // An empty array to save the data that we'll scrape
         var results = [];
-        db.Note.remove({}, function (err) {
-            console.log('collection removed')
-        });
-        db.Article.remove({}, function (err) {
-            console.log('collection removed')
-        });    // Select each element in the HTML body from which you want information.
+        if (db.Note){
+            db.Note.remove({}, function (err) {
+                console.log('collection removed')
+            });
+        };
+        if (db.Article){
+            db.Article.remove({}, function (err) {
+                console.log('collection removed')
+            }); 
+        }
+       // Select each element in the HTML body from which you want information.
         // NOTE: Cheerio selectors function similarly to jQuery's selectors,
         // but be sure to visit the package's npm page to see how it works
         $("ul.news-tiles li").each(function (i, element) {
