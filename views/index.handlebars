@@ -1,0 +1,57 @@
+<div class="row">
+</div>
+<div class="row">
+    
+    {{#each article}}
+    <div class="col m4">
+        <div class="card">
+            <div class="card-image">
+                <img class="center-align activator"alt="{{this.title}}" data-src="{{this.pic}}" src="{{this.pic}}">
+            </div>
+            <div class="card-content">
+                <span class="card-title">{{this.title}}</span>
+                <div>
+                    <p><a href={{this.link}}>{{this.desc}}</a></p>
+                </div>
+                <div class="card-action center-align">
+                    <p class="waves-effect waves-light btn red lighten-1 activator" id="btnComment">Comment</a>
+                </div>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title">{{this.title}}<i class="material-icons right">close</i></span>
+                <div class="row">
+                    <ul class="collection">
+                        {{#each this.notes}}
+                        <li class="collection-item">
+                            <span class="red-text left">{{this.name}}</span>
+                            <blockquote>{{this.body}}</blockquote>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="name" type="text" class="validate">
+                                <label for="name">Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">comment</i>
+                                <input id="comment" type="text" class="validate">
+                                <label for="comment">Comments</label>
+                            </div>
+                        </div>
+                        <button class="btn waves-effect waves-light" type="submit" name="action" id="submit" data-id={{this._id}}>Submit Comment
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
