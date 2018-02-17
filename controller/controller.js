@@ -71,7 +71,7 @@ router.get("/scrape", function (req, res) {
 // Route for getting all Articles from the db
 router.get("/articles", function (req, res) {
     // Grab every document in the Articles collection
-    db.Article.find().sort({ _id: -1 })
+    db.Article.find().sort({ _id: 1 })
         .populate("notes")
         //send to handlebars
         .exec(function (err, doc) {
