@@ -100,6 +100,7 @@ router.get("/articles/:id", function (req, res) {
 
 // Route for saving/updating an Article's associated Note
 router.post("/articles/:id", function (req, res) {
+    console.log(req.body)
     // Create a new note and pass the req.body to the entry
     db.Notes.create(req.body)
         .then(function (dbNote) {

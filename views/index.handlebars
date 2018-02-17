@@ -34,15 +34,15 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input id="name" type="text" class="validate">
-                                <label for="name">Name</label>
+                                <input id="name_{{this.id}}" type="text" class="validate">
+                                <label for="name_{{this.id}}">Name</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">comment</i>
-                                <input id="comment" type="text" class="validate">
-                                <label for="comment">Comments</label>
+                                <input id="comment_{{this.id}}" type="text" class="validate">
+                                <label for="comment{{this.id}}">Comments</label>
                             </div>
                         </div>
                         <button class="btn waves-effect waves-light" type="submit" name="action" id="submit" data-id={{this._id}}>Submit Comment
