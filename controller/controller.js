@@ -23,15 +23,13 @@ router.get("/scrape", function (req, res) {
         var results = [];
         if (db.Note){
             db.Note.remove({}, function (err) {
-                console.log('collection removed')
             });
         };
         if (db.Article){
             db.Article.remove({}, function (err) {
-                console.log('collection removed')
             }); 
         }
-       // Select each element in the HTML body from which you want information.
+        // Select each element in the HTML body from which you want information.
         // NOTE: Cheerio selectors function similarly to jQuery's selectors,
         // but be sure to visit the package's npm page to see how it works
         $("ul.news-tiles li").each(function (i, element) {
@@ -56,7 +54,6 @@ router.get("/scrape", function (req, res) {
             db.Article.create(element)
                 .then(function (dbArticle) {
                     // View the added result in the console
-                    console.log(dbArticle);
                 })
                 .catch(function (err) {
                     // If an error occurred, send it to the client
@@ -91,7 +88,6 @@ router.get("/articles/:id", function (req, res) {
     db.Article.findOne({ _id: req.params.id })
         .populate("notes")
         .then(function (dbArticle) {
-            console.log(dbArticle)
             // If we were able to successfully find an Article with the given id, send it back to the client
             res.json(dbArticle);
         })
@@ -113,7 +109,6 @@ router.post("/articles/:id", function (req, res) {
             return db.Article.findOneAndUpdate({ _id: req.params.id }, { $push: { notes: dbNote._id }}, { new: true });
         })
         .then(function (dbArticle) {
-            console.log(dbArticle)
             // If we were able to successfully update an Article, send it back to the client
             res.json(dbArticle);
         })
