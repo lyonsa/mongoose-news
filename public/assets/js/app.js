@@ -1,7 +1,8 @@
 $(document).on("click", "#submit", function () {
     // Grab the id associated with the article from the submit button
     var thisId = $(this).attr("data-id");
-
+    console.log($("#comment").val())
+    console.log($("#name").val())
     // Run a POST request to change the note, using what's entered in the inputs
     $.ajax({
         method: "POST",
@@ -12,6 +13,7 @@ $(document).on("click", "#submit", function () {
             // Value taken from note textarea
             body: $("#comment").val()
         }
+
     }).then(function(data){
         console.log(data)
     });
