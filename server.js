@@ -1,18 +1,14 @@
+// Dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 var request = require("request");
-
-// Our scraping tools
-// Axios is a promised-based http library, similar to jQuery's Ajax method
-// It works on the client and on the server
 var axios = require("axios");
 // Require all models
 var db = require("./models");
-
+// PORT
 var PORT = process.env.PORT || 3000;
-
 // Initialize Express
 var app = express();
 
@@ -31,7 +27,6 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-// By default mongoose uses callbacks for async queries, we're setting it to use promises (.then syntax) instead
 // Connect to the Mongo DB
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
@@ -46,8 +41,6 @@ mongoose.connect(MONGODB_URI, {
 // Routes
 var routes = require('./controller/controller.js');
 app.use('/', routes);
-// A GET route for scraping the echojs website
-
 
 // Start the server
 app.listen(PORT, function() {
