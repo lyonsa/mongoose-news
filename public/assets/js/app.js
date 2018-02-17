@@ -16,3 +16,17 @@ $(document).on("click", "#submit", function () {
         console.log(data)
     });
 });
+
+$(document).on("click", "#delete", function () {
+    // Grab the id associated with the article from the submit button
+    var thisId = $(this).attr("data-id");
+    console.log(thisId)
+
+    // Run a POST request to change the note, using what's entered in the inputs
+    $.ajax({
+        method: "DELETE",
+        url: "/notes/" + thisId,
+    }).then(
+    $("#" + thisId).remove()
+    );
+});

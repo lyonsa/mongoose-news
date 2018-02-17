@@ -124,4 +124,11 @@ router.post("/articles/:id", function (req, res) {
         });
 });
 
+router.delete("/notes/:id", function (req, res) {
+    db.Notes.remove({_id: req.params.id})
+    .catch(function (err){
+        console.log(err)
+    })
+})
+
 module.exports = router;

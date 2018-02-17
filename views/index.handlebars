@@ -18,13 +18,13 @@
                 </div>
             </div>
             <div class="card-reveal">
-                <span class="card-title">{{this.title}}<i class="material-icons right">close</i></span>
+                <span class="card-title">{{this.title}}<i class="material-icons right">keyboard_arrow_down</i></span>
                 <div class="row">
                     <ul class="collection">
                         {{#each this.notes}}
-                        <li class="collection-item">
+                        <li class="collection-item" id="{{this._id}}">
                             <span class="red-text left">{{this.name}}</span>
-                            <blockquote>{{this.body}}</blockquote>
+                            <blockquote>{{this.body}}<i class="btn-flat material-icons right" id="delete" data-id="{{this._id}}">delete</i></blockquote>
                         </li>
                         {{/each}}
                     </ul>
