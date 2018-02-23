@@ -1,4 +1,4 @@
-# :newspaper: Paper Scraper (aka Onion Peeler) :trollface:
+# :newspaper: Nintendo News Scraper
 A `Node.js` &amp; `MongoDB` webapp that web-scrapes news data from [Nintendo](https://www.nintendo.com/whatsnew#all) and allows users to comment about what they have read. Users can also delete unwanted comments.
 
 Please check out the deployed version in Heroku [here](https://secret-sands-39307.herokuapp.com/)!
